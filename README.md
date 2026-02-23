@@ -58,6 +58,7 @@ Automated testing suite for ReqRes.in using Postman & Newman.
 🛠️ Local Execution
 To run this suite locally, use:
 
-`newman run ReqRes-Collection.json -e ReqRes-qa-template.json -r cli,htmlextra`
+`newman run Reqres_Suite.json -e ReqRes-qa-template.json -r cli,htmlextra`
+
 
 
