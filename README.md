@@ -24,6 +24,8 @@ The suite requires a `Postman Environment` file with:
 | `xApiKey` |  API Key |
 | `session_key` | Automatically populated after Login |
 
+Note: Import ReqRes-qa-template.json and add your own api_key from the ReqRes dashboard to run the tests.
+
 Getting Started
 1. Clone the repo: `git clone <repo-url>`
 2. Install Newman: `npm install -g newman newman-reporter-htmlextra`
@@ -55,4 +57,5 @@ Automated testing suite for ReqRes.in using Postman & Newman.
 
 🛠️ Local Execution
 To run this suite locally, use:
+
 `newman run ReqRes-Collection.json -e ReqRes-qa.json -r cli,htmlextra`
