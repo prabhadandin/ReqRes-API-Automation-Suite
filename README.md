@@ -31,7 +31,7 @@ Getting Started
 2. Install Newman: `npm install -g newman newman-reporter-htmlextra`
 3. Run the suite: 
    --bash--
-   newman run ReqRes-Collection.json -e ReqRes-qa-template.json -r cli,htmlextra
+   newman run Reqres_Suite.json -e ReqRes-qa-template.json -r cli,htmlextra
 
 
 👥 UserManagement (CRUD)
@@ -59,4 +59,5 @@ Automated testing suite for ReqRes.in using Postman & Newman.
 To run this suite locally, use:
 
 `newman run ReqRes-Collection.json -e ReqRes-qa-template.json -r cli,htmlextra`
+
 
