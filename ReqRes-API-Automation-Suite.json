@@ -1,7 +1,7 @@
 {
   "info": {
     "_postman_id": "ab8d6967-2d38-4b98-9c47-fe4f252f2063",
-    "name": "ReqRes-Suite",
+    "name": "ReqRes-API-Automation-Suite",
     "description": "GET, POST, PUT, DELETE",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "_exporter_id": "8229785"
@@ -17,6 +17,9 @@
               "listen": "test",
               "script": {
                 "exec": [
+                  "pm.test(\"Status code is 200\",function(){\r",
+                  "pm.response.to.have.status(200);\r",
+                  "});\r",
                   "const response = pm.response.json();\r",
                   "if (response.token) {\r",
                   "    pm.environment.set(\"session_token\", response.token);\r",
@@ -47,12 +50,12 @@
               }
             },
             "url": {
-              "raw": "{{baseUrl}}/login",
+              "raw": "{{baseUrl}}/{{servicepath}}/login",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
-                "api",
+                "{{servicepath}}",
                 "login"
               ]
             }
@@ -90,12 +93,12 @@
               }
             },
             "url": {
-              "raw": "{{baseUrl}}/api/login",
+              "raw": "{{baseUrl}}/{{servicepath}}/login",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
-                "api",
+                "{{servicepath}}",
                 "login"
               ]
             }
@@ -133,12 +136,12 @@
               }
             },
             "url": {
-              "raw": "{{baseUrl}}/login",
+              "raw": "{{baseUrl}}/{{servicepath}}/login",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
-                "api",
+                "{{servicepath}}",
                 "login"
               ]
             }
@@ -182,6 +185,8 @@
               "script": {
                 "exec": [
                   "pm.test(\"Status code is 201\",function(){\r",
+                  "    pm.response.to.have.status(201);\r",
+                  "});\r",
                   "var jsonData=pm.response.json();\r",
                   "if (jsonData && jsonData.id) {\r",
                   "     pm.environment.set(\"new_user_id\", jsonData.id);    \r",
@@ -189,7 +194,6 @@
                   "else\r",
                   "{   pm.expect.fail(\"Response body does not contain an 'id' property to set the EmployeeID.\");\r",
                   " }\r",
-                  "});\r",
                   ""
                 ],
                 "type": "text/javascript",
@@ -217,12 +221,12 @@
               }
             },
             "url": {
-              "raw": "{{baseUrl}}/api/users",
+              "raw": "{{baseUrl}}/{{servicepath}}/users",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
-                "api",
+                "{{servicepath}}",
                 "users"
               ]
             }
@@ -239,16 +243,13 @@
                   "pm.test(\"Status code is 200\", function () {\r",
                   "    pm.response.to.have.status(200);\r",
                   "});\r",
-                  "const jsonData = pm.response.json();\r",
-                  "const user = jsonData.data || jsonData; \r",
-                  "\r",
-                  "\r",
-                  "pm.test(\"Check if User details is updated\", function () {\r",
-                  "    pm.expect(user.name.trim()).to.eql(\"Prabha\");\r",
-                  "    pm.expect(user.job.trim()).to.eql(\"Data Analyst\");\r",
+                  "const jsondata=pm.response.json();\r",
+                  "pm.test(\"Validate updted fields\",function(){\r",
+                  "pm.expect(jsondata.name).to.eql(\"Prabha\");\r",
+                  "pm.expect(jsondata.job).to.eql(\"Data Analyst\");\r",
                   "});\r",
                   "\r",
-                  "console.log(\"Updated User Data:\", user);"
+                  ""
                 ],
                 "type": "text/javascript",
                 "packages": {},
@@ -270,12 +271,12 @@
               "raw": "{\r\n    \"name\": \"Prabha\",\r\n    \"job\": \"Data Analyst\"\r\n}"
             },
             "url": {
-              "raw": "{{baseUrl}}/api/users/{{new_user_id}}",
+              "raw": "{{baseUrl}}/{{servicepath}}/users/{{new_user_id}}",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
-                "api",
+                "{{servicepath}}",
                 "users",
                 "{{new_user_id}}"
               ]
@@ -309,12 +310,12 @@
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": "{{baseUrl}}/api/users/{{new_user_id}}",
+              "raw": "{{baseUrl}}/{{servicepath}}/users/{{new_user_id}}",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
-                "api",
+                "{{servicepath}}",
                 "users",
                 "{{new_user_id}}"
               ]
@@ -381,7 +382,10 @@
         "type": "text/javascript",
         "requests": {},
         "exec": [
-          ""
+          "pm.test(\"Respnse time is less than 1000ms\",function()\r",
+          "{\r",
+          "pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+          "});"
         ]
       }
     }
