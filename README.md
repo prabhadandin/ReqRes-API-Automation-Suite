@@ -10,17 +10,39 @@ Reporting: Newman-Reporter-HtmlExtra
 Language:JavaScript (Chai.js for assertions)
 
 --Versions--
-- **Reqres-API-Automation** – ReqRes API automation without CSV.
+- **Reqres-API-Automation-Suite** – ReqRes API automation Suite without CSV.
 - **Reqres-API-Automation-CSV** – Enhanced version using CSV data for multiple scenarios (Auth flows, User CRUD, negative testing)
      -Created data-driven API tests using CSV for multiple scenarios.
      -Implemented dynamic session token management.
      -Generated HTML reports with Newman.
 
-🧪 Test Scenarios
-🔐 AuthFlow (Admin & User)
- Login Success (200 OK)
- Login - Missing Password (400 Bad Request)
- Login - User Not Found (400 Bad Request)
+Test Scenarios
+🔐 Auth Flow
+-Login Success → 200 OK
+-Positive scenario with valid email and password
+-Saves session_token for subsequent requests
+-Login - Missing Password → 400 Bad Request
+-Negative scenario when password is not provided
+-Validates error message (Missing password or user not found)
+-Login - User Not Found → 400 Bad Request
+-Negative scenario with invalid email
+-Validates error message (user not found)
+👥 User Management (CRUD)
+✅ Positive Scenarios
+-Create User → 201 Created
+   Creates user with name and job from CSV
+   Saves user_id to environment for Update/Delete
+-Update User → 200 OK
+   Updates user job using new_user_id from Create step
+   Validates updated data against CSV
+-Delete User → 204 No Content
+   Deletes user using new_user_id from Create step
+   Clears environment variable after deletion
+
+⚡ Notes
+The current suite does not include explicit negative tests for User Management (invalid IDs, missing fields, unauthorized access).
+Auth Flow negative tests are already implemented via CSV-driven scenarios.
+All workflows are data-driven, using CSV rows for multiple users and scenarios.
 
 ⚙️ Environment Variables
 The suite requires a `Postman Environment` file with:
@@ -38,8 +60,7 @@ Getting Started
 2. Install Newman: `npm install -g newman newman-reporter-htmlextra`
 3. Run the suite: 
    --bash--
-   newman run Reqres_Suite.json -e ReqRes-qa-template.json -r cli,htmlextra
-
+   newman run Reqres_API_Automation_Suite.json -e ReqRes-qa-template.json -r cli,htmlextra
 
 👥 UserManagement (CRUD)
 Create User (201 Created) & Save userID to environment
@@ -50,7 +71,7 @@ Delete User (204 No Content)
 ✨ Key Features
 Dynamic Data Chaining:Automatically extracts the `userid` from the Create response and passes it to Update/Delete requests.
 Session Management:Uses a Bearer token saved in environment variables for user-scoped data.
-Assertions:Includes checks resposne status code verification,data validation.
+Assertions:Includes checks response status code verification,data validation.
 CI/CD Ready:Configured to run via Newman with detailed HTML reporting.
 
 
@@ -66,6 +87,7 @@ Automated testing suite for ReqRes.in using Postman & Newman.
 To run this suite locally, use:
 
 `newman run Reqres_Suite.json -e ReqRes-qa-template.json -r cli,htmlextra`
+
 
 
 
