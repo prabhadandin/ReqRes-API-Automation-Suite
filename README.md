@@ -11,7 +11,10 @@ Language:JavaScript (Chai.js for assertions)
 
 --Versions--
 - **Reqres-API-Automation** – ReqRes API automation without CSV.
-- **Reqres-API-Automation-CSV** – Enhanced version using CSV data for multiple scenarios (Auth flows, User CRUD, negative testing).
+- **Reqres-API-Automation-CSV** – Enhanced version using CSV data for multiple scenarios (Auth flows, User CRUD, negative testing)
+     -Created data-driven API tests using CSV for multiple scenarios.
+     -Implemented dynamic session token management.
+     -Generated HTML reports with Newman.
 
 🧪 Test Scenarios
 🔐 AuthFlow (Admin & User)
@@ -63,6 +66,7 @@ Automated testing suite for ReqRes.in using Postman & Newman.
 To run this suite locally, use:
 
 `newman run Reqres_Suite.json -e ReqRes-qa-template.json -r cli,htmlextra`
+
 
 
 
