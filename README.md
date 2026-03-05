@@ -9,6 +9,10 @@ CLI Runner: Newman
 Reporting: Newman-Reporter-HtmlExtra
 Language:JavaScript (Chai.js for assertions)
 
+--Versions--
+- **Reqres-API-Automation** – ReqRes API automation without CSV.
+- **Reqres-API-Automation-CSV** – Enhanced version using CSV data for multiple scenarios (Auth flows, User CRUD, negative testing).
+
 🧪 Test Scenarios
 🔐 AuthFlow (Admin & User)
  Login Success (200 OK)
@@ -59,6 +63,7 @@ Automated testing suite for ReqRes.in using Postman & Newman.
 To run this suite locally, use:
 
 `newman run Reqres_Suite.json -e ReqRes-qa-template.json -r cli,htmlextra`
+
 
 
 
