@@ -1,7 +1,7 @@
 {
   "info": {
     "_postman_id": "4488db3a-9b86-4e9f-9167-450513452d0d",
-    "name": "ReqRes-API-Automation-Suite csvworkign",
+    "name": "ReqRes-API-Automation-CVS",
     "description": "GET, POST, PUT, DELETE",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "_exporter_id": "8229785"
