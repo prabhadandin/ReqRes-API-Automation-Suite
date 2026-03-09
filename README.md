@@ -8,14 +8,10 @@ Testing Tool:Postman (v11+)
 CLI Runner: Newman
 Reporting: Newman-Reporter-HtmlExtra
 Language:JavaScript (Chai.js for assertions)
-
---Versions--
-- **Reqres-API-Automation-Suite** – ReqRes API automation Suite without CSV.
-- **Reqres-API-Automation-CSV** – Enhanced version using CSV data for multiple scenarios (Auth flows, User CRUD, negative testing)
+ This porject uses CSV data for multiple scenarios (Auth flows, User CRUD, negative testing)
      -Created data-driven API tests using CSV for multiple scenarios.
      -Implemented dynamic session token management.
      -Generated HTML reports with Newman.
-
 Test Scenarios
 🔐 Auth Flow
 -Login Success → 200 OK
@@ -53,14 +49,14 @@ The suite requires a `Postman Environment` file with:
 | `xApiKey` |  API Key |
 | `session_key` | Automatically populated after Login |
 
-Note: Import ReqRes-qa-template.json and add your own api_key from the ReqRes dashboard to run the tests.
+Note: Import reqres-qa.postman_environment.json and add your own api_key from the ReqRes dashboard to run the tests.
 
 Getting Started
 1. Clone the repo: `git clone <repo-url>`
 2. Install Newman: `npm install -g newman newman-reporter-htmlextra`
 3. Run the suite: 
    --bash--
-   newman run Reqres_API_Automation_Suite.json -e ReqRes-qa-template.json -r cli,htmlextra
+   newman run reqres-csv.postman_collection.json -e reqres-qa.postman_environment.json -r cli,htmlextra
 
 👥 UserManagement (CRUD)
 Create User (201 Created) & Save userID to environment
@@ -74,22 +70,8 @@ Session Management:Uses a Bearer token saved in environment variables for user-s
 Assertions:Includes checks response status code verification,data validation.
 CI/CD Ready:Configured to run via Newman with detailed HTML reporting.
 
-
- 🚀 ReqRes API Automation Suite
-Automated testing suite for ReqRes.in using Postman & Newman.
- 📊 Test Execution Results (Newman)
-![Newman CLI Results](./screenshots/newman-cli.png)
-
-📈 Detailed HTML Report
-![HtmlExtra Report](./screenshots/htmlextra-dashboard.png)
-
 🛠️ Local Execution
 To run this suite locally, use:
-
-`newman run Reqres_Suite.json -e ReqRes-qa-template.json -r cli,htmlextra`
-
-
-
-
+`newman run csvsuite.json -e environment.json -r cli,htmlextra`
 
 
