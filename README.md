@@ -2,7 +2,6 @@
   🎯 Project Overview
 This repository contains a **REST API Functional Regression Suite** for the [ReqRes.in](https://reqres.in) API. 
 The goal is to validate User Authentication (Login) and User Management (CRUD) workflows using **Postman** for development and **Newman** for CI/CD integration.
-
 🛠️ Tech Stack
 Testing Tool:Postman (v11+)
 CLI Runner: Newman
@@ -12,6 +11,14 @@ Language:JavaScript (Chai.js for assertions)
      -Created data-driven API tests using CSV for multiple scenarios.
      -Implemented dynamic session token management.
      -Generated HTML reports with Newman.
+✨ Features
+✔ CRUD API automation  
+✔ Data-driven testing (JSON / CSV)  
+✔ Postman + Newman execution  
+✔ Dynamic session token management  
+✔ Dynamic data chaining between requests  
+✔ HTML reporting with Newman Reporter HtmlExtra  
+
 Test Scenarios
 🔐 Auth Flow
 -Login Success → 200 OK
@@ -36,9 +43,10 @@ Test Scenarios
    Clears environment variable after deletion
 
 ⚡ Notes
-The current suite does not include explicit negative tests for User Management (invalid IDs, missing fields, unauthorized access).
-Auth Flow negative tests are already implemented via CSV-driven scenarios.
-All workflows are data-driven, using CSV rows for multiple users and scenarios.
+1.The current suite does not include explicit negative tests for User Management (e.g., invalid IDs, missing fields, or unauthorized access).
+2.Auth Flow negative tests are implemented using CSV-driven scenarios.
+3.All workflows are fully data-driven, using CSV files for multiple users and test scenarios.
+
 
 ⚙️ Environment Variables
 The suite requires a `Postman Environment` file with:
@@ -73,6 +81,7 @@ CI/CD Ready:Configured to run via Newman with detailed HTML reporting.
 🛠️ Local Execution
 To run this suite locally, use:
 `newman run csvsuite.json -e environment.json -r cli,htmlextra`
+
 
 
 
