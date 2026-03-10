@@ -8,7 +8,7 @@ Testing Tool:Postman (v11+)
 CLI Runner: Newman
 Reporting: Newman-Reporter-HtmlExtra
 Language:JavaScript (Chai.js for assertions)
- This porject uses CSV data for multiple scenarios (Auth flows, User CRUD, negative testing)
+ This project uses CSV data for multiple scenarios (Auth flows, User CRUD, negative testing)
      -Created data-driven API tests using CSV for multiple scenarios.
      -Implemented dynamic session token management.
      -Generated HTML reports with Newman.
@@ -73,5 +73,6 @@ CI/CD Ready:Configured to run via Newman with detailed HTML reporting.
 🛠️ Local Execution
 To run this suite locally, use:
 `newman run csvsuite.json -e environment.json -r cli,htmlextra`
+
 
 
