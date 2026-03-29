@@ -1,6 +1,0 @@
-Scenario,email,password,name,job,updated_job,expected_create_status,expected_delete_status
-QA_Sucess_Flow,eve.holt@reqres.in,cityslicka,Tom,QA Lead,Data Analyst,201,204
-Dev_Success_Flow,eve.holt@reqres.in,cityslicka,Alex,Developer,Tech Lead,201,204
-Admin_Success_Flow,eve.holt@reqres.in,cityslicka,Sam,Admin,Manager,201,204
-Error_Invalid_User,non-existent@user.in,anypass,,,,400,
-Error_Missing_Password,eve.holt@reqres.in,,,,,400,
