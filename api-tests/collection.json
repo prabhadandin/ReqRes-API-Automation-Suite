@@ -200,8 +200,10 @@
             "method": "POST",
             "header": [],
             "body": {
-              "mode": "raw",
-              "raw": "{\r\n    \"email\": \"nonexistent@user.in\",\r\n    \"password\": \"anypassword\"\r\n}",
+              "body": {
+          "mode": "raw",
+          "raw": "{\n\"email\": \"eve.holt@reqres.in\",\n\"password\": \"cityslicka\"\n}"
+          }",
               "options": {
                 "raw": {
                   "language": "json"
