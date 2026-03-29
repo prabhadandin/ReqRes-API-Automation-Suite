@@ -1,0 +1,35 @@
+name: API Regression Tests (ReqRes)
+
+on:
+  push:
+    branches: [ "main", "master" ]
+
+jobs:
+  run-api-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Install Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install Newman
+        run: npm install -g newman newman-reporter-html
+
+      - name: Run Tests
+        run: |
+          newman run api-tests/collection.json \
+          -e api-tests/environment.json \
+          -d api-tests/data.csv \
+          --reporters cli,html \
+          --reporter-html-export report.html
+
+      - name: Upload Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: API-Report
+          path: report.html
