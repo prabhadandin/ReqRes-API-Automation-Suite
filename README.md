@@ -1,91 +1,167 @@
- 
-  🎯 Project Overview
-This repository contains a **REST API Functional Regression Suite** for the [ReqRes.in](https://reqres.in) API. 
+# 🎯 API Regression Tests (ReqRes)
 
-The goal is to validate User Authentication (Login) and User Management (CRUD) workflows using **Postman** for development and **Newman** for CI/CD integration.
+https://github.com/prabhadandin/ReqRes-API-Automation-Suite/actions/workflows/api-tests.yml/badge.svg
 
-🛠️ Tech Stack
-Testing Tool:Postman (v11+)
-CLI Runner: Newman
-Reporting: Newman-Reporter-HtmlExtra
-Language:JavaScript (Chai.js for assertions)
- This project uses CSV data for multiple scenarios (Auth flows, User CRUD, negative testing)
-     -Created data-driven API tests using CSV for multiple scenarios.
-     -Implemented dynamic session token management.
-     -Generated HTML reports with Newman.
-     
-✨ Features
+---
+
+## 🚀 Project Overview
+
+This repository contains a **REST API Functional Regression Suite** for the [ReqRes.in](https://reqres.in) API.
+
+The goal is to validate **User Authentication (Login)** and **User Management (CRUD)** workflows using **Postman** for development and **Newman** for CI/CD integration.
+
+---
+
+## 🛠️ Tech Stack
+
+- 🧪 Testing Tool: Postman (v11+)
+- ⚙️ CLI Runner: Newman
+- 📊 Reporting: newman-reporter-htmlextra
+- 💻 Language: JavaScript (Chai.js assertions)
+
+This project uses CSV data for multiple scenarios including:
+- Auth flows
+- User CRUD
+- Negative testing
+
+---
+
+## ✨ Features
+
 ✔ CRUD API automation  
 ✔ Data-driven testing (JSON / CSV)  
 ✔ Postman + Newman execution  
 ✔ Dynamic session token management  
 ✔ Dynamic data chaining between requests  
-✔ HTML reporting with Newman Reporter HtmlExtra  
+✔ HTML reporting (Newman HTML Extra)  
+✔ CI/CD integration via GitHub Actions  
 
-Test Scenarios
-🔐 Auth Flow
--Login Success → 200 OK
--Positive scenario with valid email and password
--Saves session_token for subsequent requests
--Login - Missing Password → 400 Bad Request
--Negative scenario when password is not provided
--Validates error message (Missing password or user not found)
--Login - User Not Found → 400 Bad Request
--Negative scenario with invalid email
--Validates error message (user not found)
+---
 
-👥 User Management (CRUD)
-✅ Positive Scenarios
--Create User → 201 Created
-   Creates user with name and job from CSV
-   Saves user_id to environment for Update/Delete
--Update User → 200 OK
-   Updates user job using new_user_id from Create step
-   Validates updated data against CSV
--Delete User → 204 No Content
-   Deletes user using new_user_id from Create step
-   Clears environment variable after deletion
+## 🔐 Test Scenarios
 
-⚡ Notes
-1.The current suite does not include explicit negative tests for User Management (e.g., invalid IDs, missing fields, or unauthorized access).
-2.Auth Flow negative tests are implemented using CSV-driven scenarios.
-3.All workflows are fully data-driven, using CSV files for multiple users and test scenarios.
+### Auth Flow
 
+- Login Success → 200 OK  
+  - Saves session_token for subsequent requests  
 
-⚙️ Environment Variables
-The suite requires a `Postman Environment` file with:
+- Login Missing Password → 400 Bad Request  
+  - Validates error response  
+
+- User Not Found → 400 Bad Request  
+  - Validates error message  
+
+---
+
+### 👥 User Management (CRUD)
+
+#### ✅ Positive Scenarios
+
+- Create User → 201 Created  
+  - Creates user with name & job from CSV  
+  - Saves user_id for Update/Delete  
+
+- Update User → 200 OK  
+  - Updates user using stored user_id  
+  - Validates updated data  
+
+- Delete User → 204 No Content  
+  - Deletes user and clears environment variables  
+
+---
+
+## ⚡ Notes
+
+1. Auth negative scenarios are CSV-driven  
+2. User Management negative tests are not fully included (can be extended)  
+3. Entire suite is fully data-driven using CSV files  
+
+---
+
+## ⚙️ Environment Variables
 
 | Variable | Description |
-| :--- | :--- |
-| `baseUrl` | `https://reqres.in` |
-| `xApiKey` |  API Key |
-| `session_key` | Automatically populated after Login |
+|----------|-------------|
+| baseUrl | https://reqres.in |
+| xApiKey | API Key |
+| session_key | Set after login |
 
-Note: Import reqres-qa.postman_environment.json and add your own api_key from the ReqRes dashboard to run the tests.
+📌 Import `environment.json` before running tests.
 
-Getting Started
-1. Clone the repo: `git clone <repo-url>`
-2. Install Newman: `npm install -g newman newman-reporter-htmlextra`
-3. Run the suite: 
-   --bash--
-   newman run reqres-csv.postman_collection.json -e reqres-qa.postman_environment.json -r cli,htmlextra
+---
 
-👥 UserManagement (CRUD)
-Create User (201 Created) & Save userID to environment
-Get User Details (200 OK)
-Update User (200 OK) & Verify changes
-Delete User (204 No Content)
+## 🚀 CI/CD Pipeline (GitHub Actions)
 
-✨ Key Features
-Dynamic Data Chaining:Automatically extracts the `userid` from the Create response and passes it to Update/Delete requests.
-Session Management:Uses a Bearer token saved in environment variables for user-scoped data.
-Assertions:Includes checks response status code verification,data validation.
-CI/CD Ready:Configured to run via Newman with detailed HTML reporting.
+This project is integrated with **GitHub Actions CI/CD pipeline**.
 
+### 📌 Workflow File Location:
+.github/workflows/api-tests.yml
+
+
+### ⚙️ Workflow Configuration:
+
+```yaml
+name: API Regression Tests (ReqRes)
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  run-api-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install Newman
+        run: |
+          npm install -g newman
+          npm install -g newman-reporter-htmlextra
+
+      - name: Run API Tests
+        run: |
+          newman run reqres-csv.postman_collection.json \
+            -e reqres-qa.postman_environment.json \
+            -r cli,htmlextra
+
+
+📊 Reports
+
+HTML reports are generated using:
+
+newman-reporter-htmlextra
+
+Reports help visualize:
+
+Passed tests
+Failed assertions
+API response details
+👥 CRUD Flow
+Create User (201)
+Get User (200)
+Update User (200)
+Delete User (204)
+🧠 Key Features
+Dynamic Data Chaining (userId extraction)
+Token/session handling via environment variables
+CSV-driven test execution
+Assertion validation using Chai.js
+CI/CD pipeline using GitHub Actions
 🛠️ Local Execution
-To run this suite locally, use:
-`newman run csvsuite.json -e environment.json -r cli,htmlextra`
+npm install -g newman newman-reporter-htmlextra
 
+Run tests:
 
-
-
+newman run collection.json \
+  -e environment.json \
+  -r cli,htmlextra
