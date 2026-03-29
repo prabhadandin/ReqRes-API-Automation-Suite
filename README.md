@@ -12,7 +12,7 @@ The goal is to validate **User Authentication (Login)** and **User Management (C
 
 ---
 
-## 🛠️ Tech Stack
+### 🛠️ Tech Stack
 
 - 🧪 Testing Tool: Postman (v11+)
 - ⚙️ CLI Runner: Newman
@@ -26,7 +26,7 @@ This project uses CSV data for multiple scenarios including:
 
 ---
 
-## ✨ Features
+###✨ Features
 
 ✔ CRUD API automation  
 ✔ Data-driven testing (JSON / CSV)  
@@ -38,7 +38,7 @@ This project uses CSV data for multiple scenarios including:
 
 ---
 
-## 🔐 Test Scenarios
+###🔐 Test Scenarios
 
 ### Auth Flow
 
@@ -78,7 +78,7 @@ This project uses CSV data for multiple scenarios including:
 
 ---
 
-## ⚙️ Environment Variables
+##z# ⚙️ Environment Variables
 
 | Variable | Description |
 |----------|-------------|
@@ -90,7 +90,7 @@ This project uses CSV data for multiple scenarios including:
 
 ---
 
-## 🚀 CI/CD Pipeline (GitHub Actions)
+###🚀 CI/CD Pipeline (GitHub Actions)
 
 This project is integrated with **GitHub Actions CI/CD pipeline**.
 
@@ -135,7 +135,7 @@ jobs:
             -r cli,htmlextra
 
 
-📊 Reports
+###📊 Reports
 
 HTML reports are generated using:
 
