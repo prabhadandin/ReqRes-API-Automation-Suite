@@ -1,6 +1,6 @@
-# 🎯 API Regression Tests (ReqRes)
+### 🎯 API Regression Tests (ReqRes)
 
-https://github.com/prabhadandin/ReqRes-API-Automation-Suite/actions/workflows/api-tests.yml/badge.svg
+
 
 ---
 
