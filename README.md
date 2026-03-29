@@ -1,7 +1,9 @@
  
   🎯 Project Overview
 This repository contains a **REST API Functional Regression Suite** for the [ReqRes.in](https://reqres.in) API. 
+
 The goal is to validate User Authentication (Login) and User Management (CRUD) workflows using **Postman** for development and **Newman** for CI/CD integration.
+
 🛠️ Tech Stack
 Testing Tool:Postman (v11+)
 CLI Runner: Newman
@@ -11,6 +13,7 @@ Language:JavaScript (Chai.js for assertions)
      -Created data-driven API tests using CSV for multiple scenarios.
      -Implemented dynamic session token management.
      -Generated HTML reports with Newman.
+     
 ✨ Features
 ✔ CRUD API automation  
 ✔ Data-driven testing (JSON / CSV)  
@@ -30,6 +33,7 @@ Test Scenarios
 -Login - User Not Found → 400 Bad Request
 -Negative scenario with invalid email
 -Validates error message (user not found)
+
 👥 User Management (CRUD)
 ✅ Positive Scenarios
 -Create User → 201 Created
