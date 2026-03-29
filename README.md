@@ -4,7 +4,7 @@
 
 ---
 
-## 🚀 Project Overview
+### 🚀 Project Overview
 
 This repository contains a **REST API Functional Regression Suite** for the [ReqRes.in](https://reqres.in) API.
 
