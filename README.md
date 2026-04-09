@@ -165,3 +165,4 @@ Run tests:
 newman run collection.json \
   -e environment.json \
   -r cli,htmlextra
+<img width="1145" height="570" alt="Reqres_result" src="https://github.com/user-attachments/assets/37a4d426-1a8a-4ac2-a79b-1613f2269c73" />
