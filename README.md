@@ -1,5 +1,8 @@
-[Reqres_report.html](https://github.com/user-attachments/files/26583448/Reqres_report.html)### 🎯 API Regression Tests (ReqRes)
 
+
+### 🎯 API Regression Tests (ReqRes)
+## 🔗 Live API Report
+https://prabhadandin.github.io/ReqRes-API-Automation-Suite/
 
 
 ---
