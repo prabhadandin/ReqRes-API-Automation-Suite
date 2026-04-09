@@ -125,9 +125,11 @@ Reports include:
 ---
 
 ### ⚡  Notes
-Auth negative scenarios are CSV-driven
-Suite is fully data-driven
-Extendable for more negative test cases
+-Auth negative scenarios are CSV-driven
+
+-Suite is fully data-driven
+
+-Extendable for more negative test cases
 
 ---
 
