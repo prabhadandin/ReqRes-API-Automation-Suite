@@ -166,6 +166,5 @@ newman run collection.json \
   -e environment.json \
   -r cli,htmlextra
 
-
-<img width="1145" height="570" alt="Reqres_result" src="https://github.com/user-attachments/assets/b0cd9518-c772-46bc-b062-2f38eb29cf3d" />
+/>
 
