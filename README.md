@@ -1,7 +1,7 @@
 
 
 ### 🎯 API Regression Tests (ReqRes)
-## 🔗 Live API Report
+### 🔗 Live API Report
 https://prabhadandin.github.io/ReqRes-API-Automation-Suite/
 
 
@@ -29,7 +29,7 @@ This project uses CSV data for multiple scenarios including:
 
 ---
 
-###✨ Features
+##✨ Features
 
 ✔ CRUD API automation  
 ✔ Data-driven testing (JSON / CSV)  
@@ -41,7 +41,7 @@ This project uses CSV data for multiple scenarios including:
 
 ---
 
-###🔐 Test Scenarios
+##🔐 Test Scenarios
 
 ### Auth Flow
 
@@ -81,7 +81,7 @@ This project uses CSV data for multiple scenarios including:
 
 ---
 
-##z# ⚙️ Environment Variables
+## ⚙️ Environment Variables
 
 | Variable | Description |
 |----------|-------------|
@@ -97,47 +97,6 @@ This project uses CSV data for multiple scenarios including:
 
 This project is integrated with **GitHub Actions CI/CD pipeline**.
 
-### 📌 Workflow File Location:
-.github/workflows/api-tests.yml
-
-
-### ⚙️ Workflow Configuration:
-
-```yaml
-name: API Regression Tests (ReqRes)
-
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-  workflow_dispatch:
-
-jobs:
-  run-api-tests:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
-
-      - name: Install Newman
-        run: |
-          npm install -g newman
-          npm install -g newman-reporter-htmlextra
-
-      - name: Run API Tests
-        run: |
-          newman run reqres-csv.postman_collection.json \
-            -e reqres-qa.postman_environment.json \
-            -r cli,htmlextra
-
-
 ###📊 Reports
 
 HTML reports are generated using:
@@ -145,11 +104,9 @@ HTML reports are generated using:
 newman-reporter-htmlextra
 
 Reports help visualize:
-
-Passed tests
-Failed assertions
-API response details
-👥 CRUD Flow
+- Passed tests  
+- Failed assertions  
+- API response details  👥 CRUD Flow
 Create User (201)
 Get User (200)
 Update User (200)
