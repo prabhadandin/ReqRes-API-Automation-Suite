@@ -133,5 +133,9 @@ Run tests:
 newman run collection.json \
   -e environment.json \
   -r cli,htmlextra
+⚡ Notes
+Auth negative scenarios are CSV-driven
+Suite is fully data-driven
+Extendable for more negative test cases
 
 
