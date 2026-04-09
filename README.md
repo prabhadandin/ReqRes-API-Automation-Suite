@@ -29,7 +29,7 @@ This project uses CSV data for multiple scenarios including:
 
 ---
 
-##✨ Features
+## ✨ Features
 
 ✔ CRUD API automation  
 ✔ Data-driven testing (JSON / CSV)  
@@ -41,7 +41,7 @@ This project uses CSV data for multiple scenarios including:
 
 ---
 
-##🔐 Test Scenarios
+## 🔐 Test Scenarios
 
 ### Auth Flow
 
@@ -93,7 +93,7 @@ This project uses CSV data for multiple scenarios including:
 
 ---
 
-###🚀 CI/CD Pipeline (GitHub Actions)
+### 🚀 CI/CD Pipeline (GitHub Actions)
 
 This project is integrated with **GitHub Actions CI/CD pipeline**.
 
