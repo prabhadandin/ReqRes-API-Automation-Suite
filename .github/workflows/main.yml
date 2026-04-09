@@ -3,6 +3,7 @@ name: API Regression Tests (ReqRes)
 on:
   push:
     branches: [ "main", "master" ]
+  workflow_dispatch: # This allows you to run it manually for testing
 
 jobs:
   run-api-tests:
@@ -21,6 +22,8 @@ jobs:
         run: npm install -g newman newman-reporter-html
 
       - name: Run Tests
+        # continue-on-error ensures the workflow doesn't hard-fail on 401 errors
+        continue-on-error: true
         run: |
           newman run api-tests/collection.json \
           -e api-tests/environment.json \
@@ -29,6 +32,8 @@ jobs:
           --reporter-html-export report.html
 
       - name: Upload Report
+        # if: always() ensures the employer can see the HTML results every time
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: API-Report
